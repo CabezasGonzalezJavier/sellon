@@ -3,6 +3,7 @@ package com.surgery.touchsurgery.detail;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.surgery.touchsurgery.DiscernApplication;
 import com.surgery.touchsurgery.R;
 import com.surgery.touchsurgery.data.Repository;
 import com.surgery.touchsurgery.util.schedulers.BaseSchedulerProvider;
@@ -24,7 +25,13 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_activity);
         int positon = getIntent().getExtras().getInt("object");
+        initializeDagger();
         initFragment(positon);
+    }
+
+    private void initializeDagger() {
+        DiscernApplication app = (DiscernApplication) getApplication();
+        app.getAppComponent().inject(this);
     }
 
     private void initFragment(int position) {

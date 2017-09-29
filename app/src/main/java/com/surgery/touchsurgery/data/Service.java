@@ -10,7 +10,7 @@ import rx.Observable;
  */
 
 public interface Service {
-    String URL_BASE = "http://192.168.2.28:3000/";
+    String URL_BASE = "http://192.168.2.184:3000/";
 
     @GET("db/")
     Observable<Example> getProcedure();
