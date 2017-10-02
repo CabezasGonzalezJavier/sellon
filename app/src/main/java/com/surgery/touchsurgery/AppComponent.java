@@ -1,8 +1,5 @@
 package com.surgery.touchsurgery;
 
-import com.surgery.touchsurgery.detail.DetailActivity;
-import com.surgery.touchsurgery.procedure.ProcedureActivity;
-
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -13,7 +10,6 @@ import dagger.Component;
 @Singleton
 @Component(modules = AppModule.class)
 public interface AppComponent {
-    void inject(ProcedureActivity themeActivity);
-    void inject(DetailActivity detailActivity);
+    void inject(BaseActivity baseActivity);
 
 }

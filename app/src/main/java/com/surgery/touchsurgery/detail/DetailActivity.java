@@ -1,38 +1,22 @@
 package com.surgery.touchsurgery.detail;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.surgery.touchsurgery.DiscernApplication;
+import com.surgery.touchsurgery.BaseActivity;
 import com.surgery.touchsurgery.R;
-import com.surgery.touchsurgery.data.Repository;
-import com.surgery.touchsurgery.util.schedulers.BaseSchedulerProvider;
-
-import javax.inject.Inject;
 
 import static com.surgery.touchsurgery.util.ActivityUtils.addFragmentToActivity;
 
-public class DetailActivity extends AppCompatActivity {
-
-    @Inject
-    Repository mRepository;
-
-    @Inject
-    BaseSchedulerProvider mSchedulerProvider;
+public class DetailActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_activity);
         int positon = getIntent().getExtras().getInt("object");
-        initializeDagger();
         initFragment(positon);
     }
 
-    private void initializeDagger() {
-        DiscernApplication app = (DiscernApplication) getApplication();
-        app.getAppComponent().inject(this);
-    }
 
     private void initFragment(int position) {
         DetailFragment detailFragment = (DetailFragment) getSupportFragmentManager().findFragmentById(R.id.detail_activity_contentFrame);
