@@ -15,10 +15,10 @@ import javax.inject.Inject;
 public class BaseActivity extends AppCompatActivity {
 
     @Inject
-    public Repository mRepository;
+    protected Repository mRepository;
 
     @Inject
-    public BaseSchedulerProvider mSchedulerProvider;
+    protected BaseSchedulerProvider mSchedulerProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
